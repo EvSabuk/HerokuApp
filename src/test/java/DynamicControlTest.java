@@ -31,10 +31,11 @@ public class DynamicControlTest {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("message")));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("checkbox")));
-        assertFalse(driver.findElement(By.xpath("//input[@type='text']")).isEnabled());
+        softAssert.assertFalse(driver.findElement(By.xpath("//input[@type='text']")).isEnabled());
         driver.findElement(By.xpath("//*[text()='Enable']")).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@id]")));
-        assertTrue(driver.findElement(By.xpath("//input[@type='text']")).isEnabled());
+        softAssert.assertTrue(driver.findElement(By.xpath("//input[@type='text']")).isEnabled());
+        softAssert.assertAll();
     }
 
     @AfterMethod(alwaysRun = true)

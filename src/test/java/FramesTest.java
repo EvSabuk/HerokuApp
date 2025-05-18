@@ -27,7 +27,8 @@ public class FramesTest {
         driver.switchTo().frame(driver.findElement(By.id("mce_0_ifr")));
         String placeholderText = driver.findElement(By.xpath("//p[text()='Your content goes here.']")).
                 getText();
-        assertEquals(placeholderText, "Your content goes here.");
+        softAssert. assertEquals(placeholderText, "Your content goes here.");
+        softAssert.assertAll();
     }
 
     @AfterMethod(alwaysRun = true)

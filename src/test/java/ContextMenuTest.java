@@ -31,8 +31,9 @@ public class ContextMenuTest {
         Actions actions = new Actions(driver);
         actions.contextClick(driver.findElement(By.id("hot-spot"))).perform();
         Alert alert = driver.switchTo().alert();
-        assertEquals(alert.getText(), "You selected a context menu");
+        softAssert.assertEquals(alert.getText(), "You selected a context menu");
         alert.accept();
+        softAssert.assertAll();
     }
 
     @AfterMethod(alwaysRun = true)

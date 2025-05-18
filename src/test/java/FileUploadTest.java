@@ -30,7 +30,8 @@ public class FileUploadTest {
         File file = new File("src\\test\\java\\FileForTest");
         driver.findElement(By.xpath("//input[@type = 'file']")).sendKeys(file.getAbsolutePath());
         String uploadedFile = driver.findElement(By.id("file-upload")).getDomProperty("value");
-        assertEquals(uploadedFile, "C:\\fakepath\\FileForTest");
+        softAssert.assertEquals(uploadedFile, "C:\\fakepath\\FileForTest");
+        softAssert.assertAll();
     }
 
     @AfterMethod(alwaysRun = true)
